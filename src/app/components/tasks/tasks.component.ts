@@ -13,6 +13,17 @@ export class TasksComponent implements OnInit {
   constructor(private TaskService: TaskService) {}
 
   ngOnInit(): void {
-    this.tasks = this.TaskService.getTasks();
+    this.TaskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+  }
+
+  deleteTask(task: Task) {
+    this.TaskService.deleteTask(task).subscribe(
+      () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
+    );
+    //think of subscribe is like a .then in react. we THEN FILTER for the remaining tasks that are NOT the task.id deleted by the onDElete function
+  }
+  dblClickReminder(task: Task) {
+    task.reminder = !task.reminder;
+    this.TaskService.updateTaskReminder(task).subscribe();
   }
 }
