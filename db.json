@@ -23,6 +23,12 @@
       "text": "Grocery Store",
       "day": "June 27th at 11:00am",
       "reminder": false
+    },
+    {
+      "text": "test",
+      "day": "june 10",
+      "reminder": true,
+      "id": 5
     }
   ]
 }
