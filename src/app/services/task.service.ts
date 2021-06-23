@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:3000/tasks';
+  private apiUrl = 'https://angular-first-server.herokuapp.com/tasks';
   constructor(private http: HttpClient) {}
 
   getTasks(): Observable<Task[]> {
